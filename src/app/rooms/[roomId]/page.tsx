@@ -5,6 +5,9 @@ import Link from "next/link";
 import { DevOrbitVideo } from "./video-player";
 import { splitTags } from "@/lib/utils";
 import { unstable_noStore } from "next/cache";
+import { useEffect, useState } from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { generateWhiteBoardUrl } from "@/lib/excalidraw";
 
 export default async function RoomPage(props: { params: { roomId: string } }) {
   unstable_noStore();
@@ -41,6 +44,23 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
           )}
 
           <p className="text-base text-gray-600">{room?.description}</p>
+
+          <Accordion type="single" collapsible>
+            <AccordionItem value="excalidraw-session">
+              <AccordionTrigger>Excalidraw Session</AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm">Click below to join the session:</p>
+                <a
+                  href={generateWhiteBoardUrl()}
+                  className="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join Excalidraw Session
+                </a>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
 
           <TagsList tags={splitTags(room.tags)} />
         </div>

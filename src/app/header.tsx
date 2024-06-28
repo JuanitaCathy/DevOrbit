@@ -106,9 +106,9 @@ export function Header() {
             src="/icon.png"
             width="60"
             height="60"
-            alt="the application icon of a magnifying glass"
+            alt="orbit icon"
           />
-          DevFinder
+          DevOrbit
         </Link>
 
         <nav className="flex gap-8">
