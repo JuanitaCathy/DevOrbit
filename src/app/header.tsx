@@ -25,7 +25,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useState } from "react";
-// import { deleteAccountAction } from "./actions";
+import { deleteAccountAction } from "./actions";
 
 function AccountDropdown() {
   const session = useSession();
@@ -45,10 +45,10 @@ function AccountDropdown() {
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
-              // onClick={async () => {
-              //   await deleteAccountAction();
-              //   signOut({ callbackUrl: "/" });
-              // }}
+              onClick={async () => {
+                await deleteAccountAction();
+                signOut({ callbackUrl: "/" });
+              }}
             >
               Yes, delete my account
             </AlertDialogAction>
