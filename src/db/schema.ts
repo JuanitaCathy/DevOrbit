@@ -73,6 +73,7 @@ import {
     description: text("description"),
     tags: text("tags").notNull(),
     githubRepo: text("githubRepo"),
+    excalidraw_url: text("excalidraw_url").notNull(),
   });
   
   export type Room = typeof room.$inferSelect;

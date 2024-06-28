@@ -1,4 +1,4 @@
-import randomstring from 'randomstring';
+import randomstring from "randomstring";
 
 export const generateWhiteBoardUrl = () => {
     const firstPart = randomstring.generate({

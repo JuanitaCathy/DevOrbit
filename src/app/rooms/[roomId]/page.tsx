@@ -7,7 +7,6 @@ import { splitTags } from "@/lib/utils";
 import { unstable_noStore } from "next/cache";
 import { useEffect, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { generateWhiteBoardUrl } from "@/lib/excalidraw";
 
 export default async function RoomPage(props: { params: { roomId: string } }) {
   unstable_noStore();
@@ -18,6 +17,10 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
   if (!room) {
     return <div>No room of this ID found</div>;
   }
+
+  console.log(room);
+
+  const excalidrawUrl = room.excalidraw_url ?? "#";
 
   return (
     <div className="grid grid-cols-4 min-h-screen">
@@ -50,14 +53,15 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
               <AccordionTrigger>Excalidraw Session</AccordionTrigger>
               <AccordionContent>
                 <p className="text-sm">Click below to join the session:</p>
+                {room.excalidraw_url && (
                 <a
-                  href={generateWhiteBoardUrl()}
+                  href={room.excalidraw_url}
                   className="text-blue-600 hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Join Excalidraw Session
-                </a>
+                </a>)}
               </AccordionContent>
             </AccordionItem>
           </Accordion>

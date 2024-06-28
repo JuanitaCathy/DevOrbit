@@ -3,6 +3,8 @@ import { Room, room } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { like } from "drizzle-orm";
 import { getSession } from "@/lib/auth";
+import { generateWhiteBoardUrl } from "@/lib/excalidraw";
+import randomstring from "randomstring";
 
 export async function getRooms(search: string | undefined) {
   const where = search ? like(room.tags, `%${search}%`) : undefined;
@@ -35,13 +37,31 @@ export async function deleteRoom(roomId: string) {
 }
 
 export async function createRoom(
-  roomData: Omit<Room, "id" | "userId">,
+  roomData: Omit<Room, "id" | "userId" | "excalidraw_url">,
   userId: string
 ) {
+  const firstPart = randomstring.generate({
+    length: 20,
+    charset: 'hex',
+    capitalization: 'lowercase',
+  });
+
+  const secondPart = randomstring.generate({
+    length: 22,
+    readable: true,
+  });
+
+  const excalidrawUrl = `https://excalidraw.com/#room=${firstPart},${secondPart}`;
+
+  console.log('Generated Excalidraw URL:', excalidrawUrl); // Debug log
+
   const inserted = await db
     .insert(room)
-    .values({ ...roomData, userId })
+    .values({ ...roomData, userId, excalidraw_url: excalidrawUrl })
     .returning();
+
+  console.log('Inserted room:', inserted[0]); // Debug log
+
   return inserted[0];
 }
 
@@ -53,3 +73,4 @@ export async function editRoom(roomData: Room) {
     .returning();
   return updated[0];
 }
+
