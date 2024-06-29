@@ -42,6 +42,7 @@ export function EditRoomForm({ room }: { room: Room }) {
     await editRoomAction({
       id: params.roomId as string,
       ...values,
+      excalidraw_url: ""
     });
     toast({
       title: "Room Updated",

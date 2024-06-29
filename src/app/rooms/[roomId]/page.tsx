@@ -6,6 +6,7 @@ import { DevOrbitVideo } from "./video-player";
 import { splitTags } from "@/lib/utils";
 import { unstable_noStore } from "next/cache";
 import { useEffect, useState } from "react";
+import Timer from "./timer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default async function RoomPage(props: { params: { roomId: string } }) {
@@ -31,6 +32,7 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
       </div>
 
       <div className="col-span-1 p-4 pl-2">
+        <Timer />
         <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-4 flex flex-col gap-4">
           <h1 className="text-base">{room?.name}</h1>
 
