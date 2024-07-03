@@ -65,7 +65,7 @@ export function DevOrbitVideo({ room }: { room: Room }) {
                 router.push("/browse");
               }}
             />
-            <CallParticipantsList onClose={() => undefined} />
+            {/* <CallParticipantsList onClose={() => undefined} /> */}
           </StreamCall>
         </StreamTheme>
       </StreamVideo>

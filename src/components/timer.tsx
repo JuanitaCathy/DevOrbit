@@ -14,15 +14,16 @@ const Timer: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+  const formatTime = (time: number) => {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = time % 60;
+
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
   return (
     <div className="flex items-center space-x-2 p-4 bg-gray-800 text-white rounded-lg my-2">
-        <div className="text-xl">time elapsed:</div>
           <Clock />
           <span className="text-xl">{formatTime(time)}</span>
           

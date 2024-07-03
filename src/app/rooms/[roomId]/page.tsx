@@ -2,18 +2,22 @@ import { TagsList } from "@/components/tags-list";
 import { getRoom } from "@/data-access/rooms";
 import { GithubIcon } from "lucide-react";
 import Link from "next/link";
+import TaskList from '@/components/task-list';
+import { ListTodo } from 'lucide-react';
 import { DevOrbitVideo } from "./video-player";
 import { splitTags } from "@/lib/utils";
 import { unstable_noStore } from "next/cache";
-import { useEffect, useState } from "react";
-import Timer from "./timer";
+import Timer from "@/components/timer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import dynamic from 'next/dynamic';
 
-export default async function RoomPage(props: { params: { roomId: string } }) {
+
+export default async function RoomPage(props: { params: { username: string, roomId: string } }) {
   unstable_noStore();
   const roomId = props.params.roomId;
 
   const room = await getRoom(roomId);
+  
 
   if (!room) {
     return <div>No room of this ID found</div>;
@@ -50,6 +54,8 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
 
           <p className="text-base text-gray-600">{room?.description}</p>
 
+          <TagsList tags={splitTags(room.tags)} />
+
           <Accordion type="single" collapsible>
             <AccordionItem value="excalidraw-session">
               <AccordionTrigger>Excalidraw Session</AccordionTrigger>
@@ -67,8 +73,8 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-
-          <TagsList tags={splitTags(room.tags)} />
+          <TaskList roomId={room.id} />
+          {/* <ChatWidget username={props.params.username} roomId={props.params.roomId} /> */}
         </div>
       </div>
     </div>
