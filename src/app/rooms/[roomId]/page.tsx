@@ -3,13 +3,13 @@ import { getRoom } from "@/data-access/rooms";
 import { GithubIcon } from "lucide-react";
 import Link from "next/link";
 import TaskList from '@/components/task-list';
-import { ListTodo } from 'lucide-react';
 import { DevOrbitVideo } from "./video-player";
 import { splitTags } from "@/lib/utils";
 import { unstable_noStore } from "next/cache";
 import Timer from "@/components/timer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import dynamic from 'next/dynamic';
+import ChatWidgetWrapper from "@/components/chat-widget-wrapper";
+
 
 
 export default async function RoomPage(props: { params: { username: string, roomId: string } }) {
@@ -74,7 +74,7 @@ export default async function RoomPage(props: { params: { username: string, room
             </AccordionItem>
           </Accordion>
           <TaskList roomId={room.id} />
-          {/* <ChatWidget username={props.params.username} roomId={props.params.roomId} /> */}
+          <ChatWidgetWrapper roomId={room.id} />
         </div>
       </div>
     </div>

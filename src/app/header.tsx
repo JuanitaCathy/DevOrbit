@@ -103,7 +103,7 @@ export function Header() {
           className="flex gap-2 items-center text-xl hover:underline"
         >
           <Image
-            src="/icon.png"
+            src="/2-removebg-preview.png"
             width="60"
             height="60"
             alt="orbit icon"

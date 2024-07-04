@@ -24,7 +24,7 @@ export default function LandingPage() {
             <div className="text-center">
               <Image
                 className="inline-block"
-                src="/icon.png"
+                src="/2-removebg-preview.png"
                 width="200"
                 height="200"
                 alt="dev finder logo"
@@ -33,17 +33,24 @@ export default function LandingPage() {
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
                 Find other awesome devs to pair with online
               </h1>
+              <div className="w-[90%] h-24 relative z-[0] max-sm:h-[75px]">
+                    <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+                    <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+                    <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+                    <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+              </div>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-200">
                 This platform is for sharing your screen and working with other
                 random developers online so that you can work together
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Link
+              <Link
                   href="/browse"
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Get started
-                </Link>
+                  className="relative rounded-md overflow-hidden bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:from-gray-900 hover:to-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:ring-offset-gray-50 transition-all duration-300 ease-in-out"
+                  >
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shimmer" />
+                  <span className="relative z-10">Get started</span>
+              </Link>
               </div>
             </div>
           </div>
