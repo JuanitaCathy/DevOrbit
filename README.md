@@ -18,7 +18,7 @@ The idea behind DevOrbit was to create a space where developers from around the 
 - **Task Management 📝:** Stay organized with a task list feature.
 - **Timer ⏱️:** Keep track of your sessions with a built-in timer.
 
-*🌍 DevOrbit is designed to handle small to medium-sized groups of developers efficiently. In the future, we can scale by Optimizing Three.js ie, enhancing the performance of the interactive landing page :)*
+*🌍 DevOrbit is designed to handle small to medium-sized groups of developers efficiently. However, currently the participants per room is capped to limit costs. In the future, we can scale by Optimizing Three.js ie, enhancing the performance of the interactive landing page :)*
 
 ## 🌟 Technologies Used
 
