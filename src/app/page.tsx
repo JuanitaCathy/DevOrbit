@@ -5,7 +5,7 @@ import StarBackground from "@/components/star-background";
 export default function LandingPage() {
   return (
     <div className="relative min-h-screen">
-      {/* <StarBackground /> */}
+      <StarBackground />
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
