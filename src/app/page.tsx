@@ -40,7 +40,7 @@ export default function LandingPage() {
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
             </div>
             <p className="mt-7 text-lg leading-8 text-gray-600 dark:text-gray-200">
-            Whether you're coding a project, brainstorming ideas, or chatting about tech topics, DevOrbit is your ultimate space for devs!
+            Whether you&apos;re coding a project, brainstorming ideas, or chatting about tech topics, DevOrbit is your ultimate space for devs!
             </p>
             <div className="mt-7 flex items-center justify-center gap-x-6">
               <Link

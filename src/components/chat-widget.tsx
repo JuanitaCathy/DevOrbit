@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { io, Socket } from "socket.io-client";
+import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -80,7 +81,7 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
               }`}
             >
               {message.senderId !== user.id && (
-                <img
+                <Image
                   src={message.senderAvatar}
                   alt={`${message.senderName}'s avatar`}
                   className="w-8 h-8 rounded-full mr-2"
@@ -99,7 +100,7 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
                 {message.text}
               </div>
               {message.senderId === user.id && (
-                <img
+                <Image
                   src={message.senderAvatar}
                   alt={`${message.senderName}'s avatar`}
                   className="w-8 h-8 rounded-full ml-2"
