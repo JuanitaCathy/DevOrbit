@@ -103,7 +103,7 @@ export function Header() {
           className="flex gap-2 items-center text-xl"
         >
           <Image
-            src="/Dev rbit (1).png"
+            src="/2-removebg-preview.png"
             width="55"
             height="55"
             alt="orbit icon"
