@@ -19,7 +19,7 @@ export default async function Home({
   return (
     <main className="min-h-screen p-16">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl">Find Dev Rooms</h1>
+        <h1 className="text-4xl">Find dev rooms to join!</h1>
         <Button asChild>
           <Link href="/create-room">Create Room</Link>
         </Button>

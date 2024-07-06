@@ -23,6 +23,8 @@ const formSchema = z.object({
   description: z.string().min(1).max(250),
   githubRepo: z.string().min(1).max(50),
   tags: z.string().min(1).max(50),
+  excalidraw_url: z.string().min(1).max(100),
+  
 });
 
 export function CreateRoomForm() {
@@ -37,6 +39,7 @@ export function CreateRoomForm() {
       description: "",
       githubRepo: "",
       tags: "",
+      excalidraw_url: "",
     },
   });
 

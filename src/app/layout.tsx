@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./provider";
 import { Header } from "./header";
 import NextTopLoader from 'nextjs-toploader'
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto_Serif({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DevOrbit",
