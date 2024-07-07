@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
-import Image from 'next/image';
 import { MessageCircle } from 'lucide-react';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+
 
 const socket: Socket = io('http://localhost:4000');
 

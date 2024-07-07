@@ -12,7 +12,7 @@ const StarBackground = (props: any) => {
     random.inSphere(new Float32Array(5000), { radius: 1.2 }),
   );
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     ref.current.rotation.x -= delta / 10;
     ref.current.rotation.y -= delta / 15;
   });

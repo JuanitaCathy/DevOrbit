@@ -3,7 +3,6 @@ import { Room, room } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { like } from 'drizzle-orm';
 import { getSession } from '@/lib/auth';
-import { generateWhiteBoardUrl } from '@/lib/excalidraw';
 import randomstring from 'randomstring';
 
 export async function getRooms(search: string | undefined) {

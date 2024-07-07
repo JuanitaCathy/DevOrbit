@@ -29,8 +29,6 @@ export default async function RoomPage(props: {
 
   console.log(room);
 
-  const excalidrawUrl = room.excalidraw_url ?? '#';
-
   return (
     <div className="grid grid-cols-4 min-h-screen">
       <div className="col-span-3 p-4 pr-2">

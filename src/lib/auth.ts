@@ -25,7 +25,7 @@ export const authConfig = {
   ],
   // secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token }) {
       const dbUser = await db.query.users.findFirst({
         where: (users, { eq }) => eq(users.email, token.email!),
       });
