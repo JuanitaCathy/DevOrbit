@@ -30,11 +30,7 @@ The idea behind DevOrbit was to create a space where developers from around the 
 ![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/331ae295-242f-4c75-964d-d457c703b632)
 ![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/d5104ce5-381e-44ae-b7bc-f1652f5fe9e3)
 
-
-
-
-
-
+Checkout the demo here: https://youtu.be/dBQ4eBW-qZQ
 
 ## 🌟 Technologies Used
 
