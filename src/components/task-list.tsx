@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ClipboardList, ListTodo } from 'lucide-react';
@@ -31,17 +31,25 @@ const TaskList: React.FC<{ roomId: string }> = ({ roomId }) => {
       alert('You can only have up to 5 tasks at the moment.');
       return;
     }
-    const newTaskObj: Task = { id: Date.now(), text: newTask, completed: false };
+    const newTaskObj: Task = {
+      id: Date.now(),
+      text: newTask,
+      completed: false,
+    };
     setTasks([...tasks, newTaskObj]);
     setNewTask('');
   };
 
   const toggleTask = (id: number) => {
-    setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task,
+      ),
+    );
   };
 
   const deleteTask = (id: number) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -71,8 +79,11 @@ const TaskList: React.FC<{ roomId: string }> = ({ roomId }) => {
               <ListTodo size={24} />
             </button>
           </div>
-          {tasks.map(task => (
-            <div key={task.id} className={`task-item flex items-center py-2 px-4 mb-2 rounded-lg ${task.completed ? 'bg-gray-600' : 'bg-gray-400'}`}>
+          {tasks.map((task) => (
+            <div
+              key={task.id}
+              className={`task-item flex items-center py-2 px-4 mb-2 rounded-lg ${task.completed ? 'bg-gray-600' : 'bg-gray-400'}`}
+            >
               <Checkbox
                 checked={task.completed}
                 onCheckedChange={() => toggleTask(task.id)}

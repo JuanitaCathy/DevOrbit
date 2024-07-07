@@ -1,4 +1,4 @@
-import { CreateRoomForm } from "./create-room-form";
+import { CreateRoomForm } from './create-room-form';
 
 export default function CreateRoomPage() {
   return (

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { Clock } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { Clock } from 'lucide-react';
 
 const Timer: React.FC = () => {
   const [time, setTime] = useState(0);
@@ -24,9 +24,8 @@ const Timer: React.FC = () => {
 
   return (
     <div className="flex items-center space-x-2 p-4 bg-gray-800 text-white rounded-lg my-2">
-          <Clock />
-          <span className="text-xl">{formatTime(time)}</span>
-          
+      <Clock />
+      <span className="text-xl">{formatTime(time)}</span>
     </div>
   );
 };

@@ -21,10 +21,13 @@ io.on('connection', (socket: Socket) => {
     console.log(`Socket ${socket.id} joined room ${roomId}`);
   });
 
-  socket.on("sendMessage", (message: { id: string; text: string; sender: string }, roomId: string) => {
-    io.to(roomId).emit("receiveMessage", message);
-    console.log(`Socket ${socket.id} sent message to room ${roomId}`);
-  });
+  socket.on(
+    'sendMessage',
+    (message: { id: string; text: string; sender: string }, roomId: string) => {
+      io.to(roomId).emit('receiveMessage', message);
+      console.log(`Socket ${socket.id} sent message to room ${roomId}`);
+    },
+  );
 
   socket.on('disconnect', () => {
     console.log(`Socket ${socket.id} disconnected`);

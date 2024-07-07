@@ -1,21 +1,21 @@
-import { db } from "@/db";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import { AuthOptions, DefaultSession, getServerSession } from "next-auth";
-import { Adapter } from "next-auth/adapters";
-import GoogleProvider from "next-auth/providers/google";
+import { db } from '@/db';
+import { DrizzleAdapter } from '@auth/drizzle-adapter';
+import { AuthOptions, DefaultSession, getServerSession } from 'next-auth';
+import { Adapter } from 'next-auth/adapters';
+import GoogleProvider from 'next-auth/providers/google';
 
-declare module "next-auth" {
+declare module 'next-auth' {
   interface Session extends DefaultSession {
     user: {
       id: string;
-    } & DefaultSession["user"];
+    } & DefaultSession['user'];
   }
 }
 
 export const authConfig = {
   adapter: DrizzleAdapter(db) as Adapter,
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
   providers: [
     GoogleProvider({
@@ -23,7 +23,7 @@ export const authConfig = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  // secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
       const dbUser = await db.query.users.findFirst({
@@ -31,7 +31,7 @@ export const authConfig = {
       });
 
       if (!dbUser) {
-        throw new Error("no user with email found");
+        throw new Error('no user with email found');
       }
 
       return {

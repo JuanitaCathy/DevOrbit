@@ -1,23 +1,27 @@
-import { TagsList } from "@/components/tags-list";
-import { getRoom } from "@/data-access/rooms";
-import { GithubIcon } from "lucide-react";
-import Link from "next/link";
+import { TagsList } from '@/components/tags-list';
+import { getRoom } from '@/data-access/rooms';
+import { GithubIcon } from 'lucide-react';
+import Link from 'next/link';
 import TaskList from '@/components/task-list';
-import { DevOrbitVideo } from "./video-player";
-import { splitTags } from "@/lib/utils";
-import { unstable_noStore } from "next/cache";
-import Timer from "@/components/timer";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import ChatWidgetWrapper from "@/components/chat-widget-wrapper";
+import { DevOrbitVideo } from './video-player';
+import { splitTags } from '@/lib/utils';
+import { unstable_noStore } from 'next/cache';
+import Timer from '@/components/timer';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import ChatWidgetWrapper from '@/components/chat-widget-wrapper';
 
-
-
-export default async function RoomPage(props: { params: { username: string, roomId: string } }) {
+export default async function RoomPage(props: {
+  params: { username: string; roomId: string };
+}) {
   unstable_noStore();
   const roomId = props.params.roomId;
 
   const room = await getRoom(roomId);
-  
 
   if (!room) {
     return <div>No room of this ID found</div>;
@@ -25,7 +29,7 @@ export default async function RoomPage(props: { params: { username: string, room
 
   console.log(room);
 
-  const excalidrawUrl = room.excalidraw_url ?? "#";
+  const excalidrawUrl = room.excalidraw_url ?? '#';
 
   return (
     <div className="grid grid-cols-4 min-h-screen">
@@ -62,14 +66,15 @@ export default async function RoomPage(props: { params: { username: string, room
               <AccordionContent>
                 <p className="text-sm">Click below to join the session:</p>
                 {room.excalidraw_url && (
-                <a
-                  href={room.excalidraw_url}
-                  className="text-blue-600 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Join Excalidraw Session
-                </a>)}
+                  <a
+                    href={room.excalidraw_url}
+                    className="text-blue-600 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Join Excalidraw Session
+                  </a>
+                )}
               </AccordionContent>
             </AccordionItem>
           </Accordion>

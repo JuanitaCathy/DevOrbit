@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -12,19 +12,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { createRoomAction } from "./actions";
-import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { createRoomAction } from './actions';
+import { useRouter } from 'next/navigation';
+import { useToast } from '@/components/ui/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(1).max(50),
   description: z.string().min(1).max(250),
   githubRepo: z.string().min(1).max(50),
   tags: z.string().min(1).max(50),
-  excalidraw_url: z.string().min(1).max(100),
-  
 });
 
 export function CreateRoomForm() {
@@ -35,19 +33,18 @@ export function CreateRoomForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      description: "",
-      githubRepo: "",
-      tags: "",
-      excalidraw_url: "",
+      name: '',
+      description: '',
+      githubRepo: '',
+      tags: '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const room = await createRoomAction(values);
     toast({
-      title: "Room Created",
-      description: "Your room was successfully created",
+      title: 'Room Created',
+      description: 'Your room was successfully created',
     });
     router.push(`/rooms/${room.id}`);
   }

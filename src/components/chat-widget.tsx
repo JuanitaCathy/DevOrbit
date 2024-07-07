@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { io, Socket } from "socket.io-client";
-import Image from "next/image";
-import { MessageCircle } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import React, { useState, useEffect } from 'react';
+import { io, Socket } from 'socket.io-client';
+import Image from 'next/image';
+import { MessageCircle } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
-const socket: Socket = io("http://localhost:4000");
+const socket: Socket = io('http://localhost:4000');
 
 interface Message {
   id: string;
@@ -28,14 +28,14 @@ interface Props {
 export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
   const [isChatPanelDisplayed, setIsChatPanelDisplayed] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [messageInput, setMessageInput] = useState<string>("");
+  const [messageInput, setMessageInput] = useState<string>('');
 
   useEffect(() => {
-    socket.emit("joinRoom", roomId);
+    socket.emit('joinRoom', roomId);
 
-    socket.on("receiveMessage", (message: Message) => {
-      setMessages(prevMessages => {
-        if (prevMessages.find(msg => msg.id === message.id)) {
+    socket.on('receiveMessage', (message: Message) => {
+      setMessages((prevMessages) => {
+        if (prevMessages.find((msg) => msg.id === message.id)) {
           return prevMessages;
         }
         return [...prevMessages, message];
@@ -46,19 +46,19 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
   const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmedMessage = messageInput.trim();
-    if (trimmedMessage === "") return;
+    if (trimmedMessage === '') return;
 
     const newMessage: Message = {
       id: `${Date.now()}`,
       text: trimmedMessage,
       senderId: user.id,
       senderName: user.name,
-      senderAvatar: user.avatar
+      senderAvatar: user.avatar,
     };
 
-    setMessages(prevMessages => [...prevMessages, newMessage]);
-    socket.emit("sendMessage", newMessage, roomId);
-    setMessageInput("");
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+    socket.emit('sendMessage', newMessage, roomId);
+    setMessageInput('');
   };
 
   return isChatPanelDisplayed ? (
@@ -77,11 +77,11 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
             <div
               key={message.id}
               className={`p-2 flex items-start ${
-                message.senderId === user.id ? "justify-end" : "justify-start"
+                message.senderId === user.id ? 'justify-end' : 'justify-start'
               }`}
             >
               {message.senderId !== user.id && (
-                <Image
+                <img
                   src={message.senderAvatar}
                   alt={`${message.senderName}'s avatar`}
                   className="w-8 h-8 rounded-full mr-2"
@@ -90,8 +90,8 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
               <div
                 className={`p-2 rounded-lg ${
                   message.senderId === user.id
-                    ? "bg-blue-500 text-right"
-                    : "bg-gray-700 text-left"
+                    ? 'bg-blue-500 text-right'
+                    : 'bg-gray-700 text-left'
                 }`}
               >
                 {message.senderId !== user.id && (
@@ -100,7 +100,7 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
                 {message.text}
               </div>
               {message.senderId === user.id && (
-                <Image
+                <img
                   src={message.senderAvatar}
                   alt={`${message.senderName}'s avatar`}
                   className="w-8 h-8 rounded-full ml-2"
@@ -109,7 +109,10 @@ export const ChatWidget: React.FC<Props> = ({ roomId, user }) => {
             </div>
           ))}
         </div>
-        <form onSubmit={handleSendMessage} className="flex p-2 border-t border-gray-700">
+        <form
+          onSubmit={handleSendMessage}
+          className="flex p-2 border-t border-gray-700"
+        >
           <input
             type="text"
             value={messageInput}

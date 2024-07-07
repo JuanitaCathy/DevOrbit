@@ -1,6 +1,6 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+'use client';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -8,11 +8,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Room } from "@/db/schema";
-import { GithubIcon, PencilIcon, TrashIcon } from "lucide-react";
-import { TagsList } from "@/components/tags-list";
-import { splitTags } from "@/lib/utils";
+} from '@/components/ui/card';
+import { Room } from '@/db/schema';
+import { GithubIcon, PencilIcon, TrashIcon } from 'lucide-react';
+import { TagsList } from '@/components/tags-list';
+import { splitTags } from '@/lib/utils';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,8 +23,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { deleteRoomAction } from "./actions";
+} from '@/components/ui/alert-dialog';
+import { deleteRoomAction } from './actions';
 
 export function UserRoomCard({ room }: { room: Room }) {
   return (
@@ -59,7 +59,7 @@ export function UserRoomCard({ room }: { room: Room }) {
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant={"destructive"}>
+            <Button variant={'destructive'}>
               <TrashIcon className="w-4 h-4 mr-2" /> Delete Room
             </Button>
           </AlertDialogTrigger>

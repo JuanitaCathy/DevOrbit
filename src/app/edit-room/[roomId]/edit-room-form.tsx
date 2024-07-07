@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -12,12 +12,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { editRoomAction } from "./actions";
-import { useParams } from "next/navigation";
-import { Room } from "@/db/schema";
-import { toast } from "@/components/ui/use-toast";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { editRoomAction } from './actions';
+import { useParams } from 'next/navigation';
+import { Room } from '@/db/schema';
+import { toast } from '@/components/ui/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(1).max(50),
@@ -32,8 +32,8 @@ export function EditRoomForm({ room }: { room: Room }) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: room.name,
-      description: room.description ?? "",
-      githubRepo: room.githubRepo ?? "",
+      description: room.description ?? '',
+      githubRepo: room.githubRepo ?? '',
       tags: room.tags,
     },
   });
@@ -42,11 +42,10 @@ export function EditRoomForm({ room }: { room: Room }) {
     await editRoomAction({
       id: params.roomId as string,
       ...values,
-      excalidraw_url: ""
     });
     toast({
-      title: "Room Updated",
-      description: "Your room was successfully updated",
+      title: 'Room Updated',
+      description: 'Your room was successfully updated',
     });
   }
 

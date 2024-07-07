@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "@/components/ui/button";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { ModeToggle } from '@/components/mode-toggle';
+import { Button } from '@/components/ui/button';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { DeleteIcon, LogInIcon, LogOutIcon } from "lucide-react";
-import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Link from "next/link";
+} from '@/components/ui/dropdown-menu';
+import { DeleteIcon, LogInIcon, LogOutIcon } from 'lucide-react';
+import Image from 'next/image';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import Link from 'next/link';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,9 +23,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { useState } from "react";
-import { deleteAccountAction } from "./actions";
+} from '@/components/ui/alert-dialog';
+import { useState } from 'react';
+import { deleteAccountAction } from './actions';
 
 function AccountDropdown() {
   const session = useSession();
@@ -47,7 +47,7 @@ function AccountDropdown() {
             <AlertDialogAction
               onClick={async () => {
                 await deleteAccountAction();
-                signOut({ callbackUrl: "/" });
+                signOut({ callbackUrl: '/' });
               }}
             >
               Yes, delete my account
@@ -58,12 +58,11 @@ function AccountDropdown() {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant={"link"}>
+          <Button variant={'link'}>
             <Avatar className="mr-2">
-              <AvatarImage src={session.data?.user?.image ?? ""} />
+              <AvatarImage src={session.data?.user?.image ?? ''} />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-
             {session.data?.user?.name}
           </Button>
         </DropdownMenuTrigger>
@@ -71,7 +70,7 @@ function AccountDropdown() {
           <DropdownMenuItem
             onClick={() =>
               signOut({
-                callbackUrl: "/",
+                callbackUrl: '/',
               })
             }
           >
@@ -98,10 +97,7 @@ export function Header() {
   return (
     <header className="py-2 z-10 relative">
       <div className="container mx-auto flex justify-between items-center">
-        <Link
-          href="/"
-          className="flex gap-2 items-center text-xl"
-        >
+        <Link href="/" className="flex gap-2 items-center text-xl">
           <Image
             src="/2-removebg-preview.png"
             width="55"

@@ -1,10 +1,10 @@
-import { db } from "@/db";
-import { Room, room } from "@/db/schema";
-import { eq } from "drizzle-orm";
-import { like } from "drizzle-orm";
-import { getSession } from "@/lib/auth";
-import { generateWhiteBoardUrl } from "@/lib/excalidraw";
-import randomstring from "randomstring";
+import { db } from '@/db';
+import { Room, room } from '@/db/schema';
+import { eq } from 'drizzle-orm';
+import { like } from 'drizzle-orm';
+import { getSession } from '@/lib/auth';
+import { generateWhiteBoardUrl } from '@/lib/excalidraw';
+import randomstring from 'randomstring';
 
 export async function getRooms(search: string | undefined) {
   const where = search ? like(room.tags, `%${search}%`) : undefined;
@@ -17,7 +17,7 @@ export async function getRooms(search: string | undefined) {
 export async function getUserRooms() {
   const session = await getSession();
   if (!session) {
-    throw new Error("User not authenticated");
+    throw new Error('User not authenticated');
   }
   const rooms = await db.query.room.findMany({
     where: eq(room.userId, session.user.id),
@@ -37,8 +37,8 @@ export async function deleteRoom(roomId: string) {
 }
 
 export async function createRoom(
-  roomData: Omit<Room, "id" | "userId" | "excalidraw_url">,
-  userId: string
+  roomData: Omit<Room, 'id' | 'userId' | 'excalidraw_url'>,
+  userId: string,
 ) {
   const firstPart = randomstring.generate({
     length: 20,
@@ -65,12 +65,29 @@ export async function createRoom(
   return inserted[0];
 }
 
-export async function editRoom(roomData: Room) {
+export async function editRoom(
+  roomData: Omit<Room, 'userId' | 'excalidraw_url'>,
+) {
+  const firstPart = randomstring.generate({
+    length: 20,
+    charset: 'hex',
+    capitalization: 'lowercase',
+  });
+
+  const secondPart = randomstring.generate({
+    length: 22,
+    readable: true,
+  });
+
+  const excalidrawUrl = `https://excalidraw.com/#room=${firstPart},${secondPart}`;
+
+  console.log('Generated Excalidraw URL:', excalidrawUrl); // Debug log
+
   const updated = await db
     .update(room)
-    .set(roomData)
+    .set({ ...roomData, excalidraw_url: excalidrawUrl })
     .where(eq(room.id, roomData.id))
     .returning();
+
   return updated[0];
 }
-

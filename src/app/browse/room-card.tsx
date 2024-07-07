@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -9,11 +9,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Room } from "@/db/schema";
-import {  Github  } from "lucide-react";
-import { TagsList } from "@/components/tags-list";
-import { splitTags } from "@/lib/utils";
+} from '@/components/ui/card';
+import { Room } from '@/db/schema';
+import { Github } from 'lucide-react';
+import { TagsList } from '@/components/tags-list';
+import { splitTags } from '@/lib/utils';
 
 export function RoomCard({ room }: { room: Room }) {
   return (
