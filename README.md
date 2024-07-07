@@ -20,6 +20,22 @@ The idea behind DevOrbit was to create a space where developers from around the 
 
 *🌍 DevOrbit is designed to handle small to medium-sized groups of developers efficiently. However, currently the participants per room is capped to limit costs. In the future, we can scale by Optimizing Three.js ie, enhancing the performance of the interactive landing page :)*
 
+## Few Screenshots!
+
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/4ee6e889-2708-4b36-8078-a460341fb2e7)
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/d156dea5-e746-4321-9609-4c60c0867e08)
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/d1057fd3-7547-4ad7-a123-ef5d859fb967)
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/50d0b48d-2683-4092-a31c-74abf9b385a6)
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/4f9b1ce3-8a25-4273-8e35-01ba04d05607)
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/331ae295-242f-4c75-964d-d457c703b632)
+![image](https://github.com/JuanitaCathy/DevOrbit/assets/114871036/d5104ce5-381e-44ae-b7bc-f1652f5fe9e3)
+
+
+
+
+
+
+
 ## 🌟 Technologies Used
 
 - **Next.js:** A powerful React framework for server-side rendering and building static web applications.
