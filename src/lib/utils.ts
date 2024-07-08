@@ -7,5 +7,3 @@ export function cn(...inputs: ClassValue[]) {
 export function splitTags(tags: string) {
   return tags.split(',').map((tag) => tag.trim());
 }
-
-

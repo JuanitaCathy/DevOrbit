@@ -1,2 +1,11 @@
 .next
 node_modules
+./src/components/star-background.tsx
+./src/components/ui/accordion.tsx
+./src/components/ui/alert-dialog.tsx
+./src/components/ui/avatar.tsx
+./src/components/ui/checkbox.tsx
+./src/components/ui/card.tsx
+./src/components/ui/form.tsx
+./src/components/ui/toast.tsx
+./src/components/ui/dropdown-menu.tsx

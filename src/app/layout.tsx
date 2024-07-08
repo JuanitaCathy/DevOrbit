@@ -5,7 +5,6 @@ import { Header } from './header';
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from '@/components/ui/toaster';
 
-
 export const metadata: Metadata = {
   title: 'DevOrbit',
   description: 'An application for pair programming with random devs!',
