@@ -1,7 +1,19 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
+
+/**
+ * @type {import('express')}
+ */
 const express = require('express');
+
+/**
+ * @type {import('socket.io').Server}
+ */
 const socket_io_1 = require('socket.io');
+
+/**
+ * @type {import('http')}
+ */
 const http_1 = require('http');
 const app = express();
 const server = (0, http_1.createServer)(app);
