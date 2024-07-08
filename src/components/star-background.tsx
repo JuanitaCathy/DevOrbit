@@ -2,16 +2,18 @@
 
 import React, { useState, useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
 import { Points, PointMaterial } from '@react-three/drei';
-// @ts-expect-error
+import * as THREE from 'three';
+// @ts-expect-error: This import is necessary for random sphere generation, and the types are not available
 import * as random from 'maath/random/dist/maath-random.esm';
 
 interface StarBackgroundProps {
-  [key: string]: any;
+  positions?: Float32Array;
+  stride?: number;
+  frustumCulled?: boolean;
 }
 
-const StarBackground = (props: StarBackgroundProps) => {
+const StarBackground: React.FC<StarBackgroundProps> = (props) => {
   const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(5000), { radius: 1.2 })
@@ -39,7 +41,7 @@ const StarBackground = (props: StarBackgroundProps) => {
   );
 };
 
-const StarsCanvas = () => (
+const StarsCanvas: React.FC = () => (
   <div className="w-full h-auto fixed inset-0 z-[-1]">
     <Canvas camera={{ position: [0, 0, 1] }}>
       <Suspense fallback={null}>
