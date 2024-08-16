@@ -76,4 +76,4 @@ npm run dev
 
 ## 📜 License
 
-CineVault is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Devorbit is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
