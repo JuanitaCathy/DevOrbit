@@ -1,0 +1,22 @@
+{
+  "name": "DevOrbit Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "typescript.tsdk": "./node_modules/typescript/lib",
+        "eslint.enable": true,
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-typescript-tslint-plugin"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install"
+}
